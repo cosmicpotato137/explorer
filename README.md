@@ -5,7 +5,6 @@ The Explorer component for Quartz - navigate your digital garden with an interac
 ## Features
 
 - 📁 Interactive folder tree with collapse/expand functionality
-- 📱 Mobile-friendly slide-out navigation
 - 💾 Persistent state (remembers open/closed folders)
 - 🔗 Configurable folder click behavior (link or collapse)
 - ⚡ Built-in search and overflow handling
@@ -79,6 +78,12 @@ By default, the Explorer:
 - Saves folder states between sessions
 - Excludes the "tags" folder from the tree
 - Sorts folders first, then files alphabetically
+
+## Mobile
+
+The Explorer doesn't provide its own mobile navigation. On mobile, Quartz moves the left sidebar
+(including the Explorer) into a hamburger menu, so the Explorer renders there exactly as it does
+in the sidebar on desktop.
 
 ## Development
 

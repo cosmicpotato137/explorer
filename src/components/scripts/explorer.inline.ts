@@ -311,12 +311,6 @@ async function handleNavOrRender(e) {
           if (!nearestExplorer) return;
           const explorerCollapsed = nearestExplorer.classList.toggle("collapsed");
           nearestExplorer.setAttribute("aria-expanded", explorerCollapsed ? "false" : "true");
-
-          if (!explorerCollapsed) {
-            document.documentElement.classList.add("mobile-no-scroll");
-          } else {
-            document.documentElement.classList.remove("mobile-no-scroll");
-          }
         };
         button.addEventListener("click", clickHandler);
         cleanupHandlers.push(() => button.removeEventListener("click", clickHandler));
@@ -389,19 +383,6 @@ async function handleNavOrRender(e) {
 
       if (typeof window !== "undefined" && window.addCleanup) {
         window.addCleanup(() => cleanupHandlers.forEach((fn) => fn()));
-      }
-    }
-
-    for (const explorer of document.getElementsByClassName("explorer")) {
-      const mobileExplorer = explorer.querySelector(".mobile-explorer");
-      if (!mobileExplorer) continue;
-
-      mobileExplorer.classList.remove("hide-until-loaded");
-
-      if (mobileExplorer.checkVisibility && mobileExplorer.checkVisibility()) {
-        explorer.classList.add("collapsed");
-        explorer.setAttribute("aria-expanded", "false");
-        document.documentElement.classList.remove("mobile-no-scroll");
       }
     }
   } catch (err) {
